@@ -17,16 +17,26 @@ namespace ComputerService
         {
             return _computers;
         }
-        public Computer GetComputerByName(string name)
+        public string GetComputerByName(string name)
         {
+            string result = string.Empty;
+            bool ch = true;
             foreach(Computer pc in _computers)
             {
                 if(pc.GetName() == name)
                 {
-                    return pc;
+                    result = $" Name: {pc.GetName()} \n Processor: {pc.GetProcessor().ProcessorName} \n Videocard: {pc.GetVideocard().VideocardName} \n Price: {pc.GetPrice()}";
+                    ch = false;
                 }
             }
-            return null;
+            if(ch == true)
+            {
+                return "I dont find this computer";
+            }
+            else
+            {
+                return result;
+            }        
         }
     }
 }

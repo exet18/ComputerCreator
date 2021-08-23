@@ -14,11 +14,13 @@ namespace ComputerService
     {
         private ProcessorList _processors;
         private VideocardList _videocards;
+        private ComputerList _computerlist;
         public AddComputerForm()
         {         
             InitializeComponent();
             _videocards = new VideocardList();
             _processors = new ProcessorList();
+            _computerlist = new ComputerList();
             _videocards.AddVideocard("GTX 1650", 1200, "2400", "Nvidia");_videocards.AddVideocard("RTX 3090", 2000, "8000", "Nvidia");
             _videocards.AddVideocard("RTX 1870", 1000, "5000", "Nvidia");_videocards.AddVideocard("GTX 2090", 800, "4000", "Nvidia");
             foreach (Videocard gpu in _videocards.GetVideocards())
@@ -55,6 +57,47 @@ namespace ComputerService
             {
                 MessageBox.Show("Select videocard!");
             }
+        }
+
+        private void reset_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
+
+        private void pc_create_Click(object sender, EventArgs e)
+        {
+            if(inp_name.Text != "" && list_gpu.Text != "" && listcpu.Text != "")
+            {
+                Computer pc = new Computer();
+                pc.SetName(inp_name.Text);
+                pc.SetProcessor(_processors.GetProcessor(listcpu.Text));
+                pc.SetVideocard(_videocards.GetVideocard(list_gpu.Text));
+                _computerlist.AddComputer(pc);
+                MessageBox.Show("Computer add!");
+                Reset();
+            }
+            else
+            {
+                MessageBox.Show("Enter data!");
+            }
+        }
+
+        private void show_Click(object sender, EventArgs e)
+        {
+            if(inp_name.Text != "")
+            {
+                MessageBox.Show(_computerlist.GetComputerByName(inp_name.Text));
+            }
+            else
+            {
+                MessageBox.Show("Enter computer name");
+            }
+        }
+        private void Reset()
+        {
+            listcpu.ResetText();
+            list_gpu.ResetText();
+            inp_name.ResetText();
         }
     }
 }

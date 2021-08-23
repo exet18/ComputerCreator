@@ -29,7 +29,7 @@ namespace ComputerService
             {
                 if(gpu.VideocardName == name)
                 {
-                    result = $" [VIDEOCARD] \n Company: {gpu.VideocardCompany} \n Name: {gpu.VideocardName} \n Price: {gpu.VideocardPrice} \n Socket: {gpu.VideocardGhz}";
+                    result = $" [VIDEOCARD] \n Company: {gpu.VideocardCompany} \n Name: {gpu.VideocardName} \n Price: {gpu.VideocardPrice} \n Ghz: {gpu.VideocardGhz}";
                 }
             }
             return result;

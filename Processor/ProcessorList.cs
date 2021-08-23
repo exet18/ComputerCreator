@@ -34,5 +34,16 @@ namespace ComputerService
             }
             return result;
         }
+        public Processor GetProcessor(string name)
+        {
+            foreach (Processor cpu in _processors)
+            {
+                if (cpu.ProcessorName == name)
+                {
+                    return cpu;
+                }
+            }
+            return null;
+        }
     }
 }
