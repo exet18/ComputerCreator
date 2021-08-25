@@ -18,9 +18,14 @@ namespace ComputerService
             cpu.ProcessorCompany = company;
             _processors.Add(cpu);
         }
-        public List<Processor> GetProcessors()
+        public List<string> GetProcessors()
         {
-            return _processors;
+            List<string> list = new List<string>();
+            foreach (Processor cpu in _processors)
+            {
+                list.Add(cpu.ProcessorName);
+            }
+            return list;
         }
         public string GetInfoByProcessor(string name)
         {

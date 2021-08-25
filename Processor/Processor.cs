@@ -11,6 +11,7 @@ namespace ComputerService
         public string ProcessorName { get; set; }
         public int ProcessorPrice { get; set; }
         public string ProcessorSocket { get; set; }
-        public string ProcessorCompany { get; set; }    
+        public string ProcessorCompany { get; set; }
+
     }
 }

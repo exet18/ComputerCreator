@@ -18,9 +18,14 @@ namespace ComputerService
             gpu.VideocardCompany = company;
             _videocards.Add(gpu);
         }
-        public List<Videocard> GetVideocards()
+        public List<string> GetVideocards()
         {
-            return _videocards;
+            List<string> list = new List<string>();
+            foreach (Videocard gpu in _videocards)
+            {
+                list.Add(gpu.VideocardName);
+            }
+            return list;
         }
         public string GetInfoByVideocard(string name)
         {
