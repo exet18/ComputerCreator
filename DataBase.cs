@@ -9,7 +9,7 @@ namespace ComputerService
 {
     public class DataBase
     {
-        MySqlConnection connection = new MySqlConnection("server=127.0.0.1;port=3306;username=root;password=root;database=test;");
+        MySqlConnection connection = new MySqlConnection("your data");
         public void OpenConnection()
         {
             if(connection.State == System.Data.ConnectionState.Closed)
